@@ -7,6 +7,28 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
+## 🚀 Deployment
+
+### Deploying to Vercel (Recommended)
+This project is optimized for **Vercel**. 
+
+1.  Push your code to GitHub.
+2.  Import the project in the [Vercel Dashboard](https://vercel.com/new).
+3.  Add the **Environment Variable**:
+    *   `VITE_GEMINI_API_KEY`: Your Google AI API Key.
+4.  Click **Deploy**.
+
+### Deploying to Google Cloud Run
+1.  Ensure you have the `gcloud` CLI installed.
+2.  Run the following command:
+    ```bash
+    gcloud builds submit --config cloud-build.yaml --project your-project-id .
+    ```
+
+---
+
+## 🛠️ Tech Stack
+
 ## React Compiler
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
