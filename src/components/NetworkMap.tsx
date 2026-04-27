@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Truck, AlertTriangle, ArrowRight } from 'lucide-react';
+import { Truck, AlertTriangle } from 'lucide-react';
 import { ASIA_NODES, ASIA_EDGES } from '../utils/graph';
 
 interface NetworkMapProps {
@@ -62,7 +62,7 @@ const NetworkMap: React.FC<NetworkMapProps> = ({ disruptedNodes, activePath, old
         <AmbientFlow />
 
         {/* Connection Lines (Edges) */}
-        {ASIA_EDGES.map((edge, i) => {
+        {ASIA_EDGES.map((edge, _) => {
           const from = ASIA_NODES.find(n => n.id === edge.from)!;
           const to = ASIA_NODES.find(n => n.id === edge.to)!;
           const isActive = activePath.includes(edge.from) && activePath.includes(edge.to) && 
@@ -160,7 +160,7 @@ const NetworkMap: React.FC<NetworkMapProps> = ({ disruptedNodes, activePath, old
         })}
 
         {/* Cargo Icons */}
-        <CargoIcon activePath={activePath} phase={phase} />
+        <CargoIcon activePath={activePath} />
 
         {/* Rerouted Label */}
         {phase === 'optimized' && (
@@ -220,7 +220,7 @@ const NetworkMap: React.FC<NetworkMapProps> = ({ disruptedNodes, activePath, old
   );
 };
 
-const CargoIcon: React.FC<{ activePath: string[], phase: string }> = ({ activePath, phase }) => {
+const CargoIcon: React.FC<{ activePath: string[] }> = ({ activePath }) => {
   if (activePath.length < 2) return null;
 
   return (

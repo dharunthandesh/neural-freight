@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Activity, Zap, CloudLightning, Navigation, TrendingDown, Clock, Wallet, Globe, Loader2, Cpu, ShieldAlert } from 'lucide-react';
+import { Activity, Zap, CloudLightning, Navigation, Loader2, Cpu, ShieldAlert } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import NetworkMap from './components/NetworkMap';
-import { ASIA_NODES, findPath } from './utils/graph';
+import { findPath } from './utils/graph';
 import { getNeuralAudit } from './services/intelligence';
-import type { NeuralTrace } from './services/intelligence';
+
+interface NeuralTrace {
+  agent: string;
+  reasoning: string;
+  recommendation: string;
+  riskScore: number;
+}
 
 interface LogEntry {
   id: string;
