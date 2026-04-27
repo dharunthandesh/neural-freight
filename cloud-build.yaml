@@ -1,0 +1,15 @@
+steps:
+  # Install dependencies
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+  
+  # Build the production application
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']
+
+  # Deploy to Firebase Hosting (as an example of Google Cloud service)
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'deploy']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
